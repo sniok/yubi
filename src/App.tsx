@@ -65,8 +65,8 @@ function Env() {
   )
 }
 
-function HandStick({ handedness }: { handedness: string }) {
-  const scene = useLoader(GLTFLoader, './yubi3.glb')
+function Yubi({ handedness }: { handedness: string }) {
+  const scene = useLoader(GLTFLoader, './yubi.glb')
   const controller = useController(handedness as any)
   const args = [0.06, 0.07, 0.28]
   const [ref, api] = useBox(() => ({
@@ -98,7 +98,7 @@ export function GameScene({ handedness, toMenu }: { handedness: string; toMenu: 
       <Env />
       <Tower key={id} />
       <Suspense fallback={null}>
-        <HandStick handedness={handedness} />
+        <Yubi handedness={handedness} />
       </Suspense>
     </>
   )
@@ -136,7 +136,7 @@ export function IntroScene({ onStart, handedness, setHandedness }: any) {
           <Sphere args={[0.03]} />
         </animated.group>
         <Text color="#448" fontSize={0.4} position={[0, 1.5, -1]}>
-          YUBI
+          Yubi
         </Text>
         <Text color="#448" position={[0, 1.2, -1]} fontSize={0.05}>
           Trigger - restart, Squeeze - menu
